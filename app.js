@@ -3,6 +3,8 @@ const app = express();
 const json = require('json')
 
 app.use(express.json());
+app.use(express.static('public'));
+
 
 app.get('/bfhl', (req, res) => {
     res.status(200).json({
