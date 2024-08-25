@@ -5,10 +5,10 @@ const path = require('path')
 
 app.use(express.json());
 app.use(express.static('public'));
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(process.cwd(), 'client/dist')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+    res.sendFile(path.join(process.cwd(), 'client/dist', 'index.html'));
 });
 
 app.get('/bfhl', (req, res) => {
