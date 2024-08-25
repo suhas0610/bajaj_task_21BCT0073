@@ -22,9 +22,9 @@ app.post('/bfhl', (req, res) => {
     data = JSON.parse(data).data;
     // console.log({data});
 
-    const userId = "john_doe_17091999";
-    const email = "john@xyz.com";
-    const rollNumber = "ABCD123";
+    const userId = "suhas_06102003";
+    const email = "munagala.suhas2021@vitstudent.ac.in";
+    const rollNumber = "21BCT0073";
     
     const numbers = data.filter(item => /^[0-9]+$/.test(item));
     const alphabets = data.filter(item => /^[a-zA-Z]$/.test(item));
