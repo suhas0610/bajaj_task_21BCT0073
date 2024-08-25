@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 const json = require('json')
+const path = require('path')
 
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'client/dist')));
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+});
 
 app.get('/bfhl', (req, res) => {
     res.status(200).json({
@@ -13,9 +18,9 @@ app.get('/bfhl', (req, res) => {
 });
 
 app.post('/bfhl', (req, res) => {
-    const { data } = req.body;
-    // const jsonObj = JSON.parse(data);
-    console.log({data});
+    var { data } = req.body;
+    data = JSON.parse(data).data;
+    // console.log({data});
 
     const userId = "john_doe_17091999";
     const email = "john@xyz.com";
